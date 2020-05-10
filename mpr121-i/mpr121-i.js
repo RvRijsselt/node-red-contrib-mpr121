@@ -11,16 +11,15 @@ module.exports = function(RED) {
 			text : "disconnected"
 		});
 
-		// Address, I2c Bus, Gpio interrupt
-		this.mod = new Mpr121(parseInt(config.address), config.i2cbus);
+		// Address, I2c Bus, Gipio interrupt
+		this.mod = new Mpr121(config.address, config.i2cbus, config.thres1, config.thres2, config.sensitive);
 
 		this.mod.onTouch = function(pin) {
 			var msg = {
-				payload : 1 ,
-				action : "touch",
-				pin : pin,
-				address : parseInt(config.address),
-				i2cbus : parseInt(config.i2cbus)
+				payload : {
+					type : "touch",
+					pin : pin
+				}
 			}
 			var msgs = new Array(12);
 			msgs[pin] = msg;
@@ -30,11 +29,10 @@ module.exports = function(RED) {
 
 		this.mod.onRelease = function(pin) {
 			var msg = {
-				payload : 0 ,
-				action : "release",
-				pin : pin,
-				address : parseInt(config.address),
-				i2cbus : parseInt(config.i2cbus)
+				payload : {
+					type : "release",
+					pin : pin
+				}
 			}
 			var msgs = new Array(12);
 			msgs[pin] = msg;

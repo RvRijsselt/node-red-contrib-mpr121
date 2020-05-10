@@ -14,7 +14,16 @@
 			},
 			i2cbus : {
 				value : 1
-			}
+			},
+			thres1 : {
+				value : 12
+			},
+			thres2 : {
+				value : 6
+			},
+			sensitive : {
+				value : false
+			},
 		},
 		inputs : 0,
 		outputs : 12,
@@ -39,6 +48,18 @@
 	<div class="form-row">
         <label for="node-input-i2cbus"><i class="icon-tag"></i>I2c Bus</label>
   		<input type="text" id="node-input-i2cbus" placeholder="i2cbus">
+    </div>
+	<div class="form-row">
+        <label for="node-input-thres1"><i class="icon-tag"></i>Threshold 1</label>
+  		<input type="text" id="node-input-thres1" placeholder="thres1">
+    </div>
+	<div class="form-row">
+        <label for="node-input-thres2"><i class="icon-tag"></i>Threshold 2</label>
+  		<input type="text" id="node-input-thres2" placeholder="thres2">
+    </div>
+	<div class="form-row">
+        <label for="node-input-sensitive"><i class="icon-tag"></i>Sensitive mode</label>
+  		<input type="text" id="node-input-sensitive" placeholder="sensitive">
     </div>
 </script>
 
